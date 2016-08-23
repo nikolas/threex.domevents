@@ -1,4 +1,8 @@
-var THREEx	= THREEx	|| {}
+module.exports = function initializeDomEvents(THREE, THREEx) {
+
+
+/** @namespace */
+THREEx = THREEx || {};
 
 
 THREEx.Linkify	= function(domEvents, mesh, url, withBoundingBox){
@@ -60,4 +64,7 @@ THREEx.Linkify	= function(domEvents, mesh, url, withBoundingBox){
 	this.destroy	= function(){
 		console.log('not yet implemented')
 	}
+}
+
+return THREEx
 }

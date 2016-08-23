@@ -64,8 +64,11 @@
 
 //
 
+module.exports = function initializeDomEvents(THREE, THREEx) {
+
+
 /** @namespace */
-var THREEx		= THREEx 		|| {};
+THREEx = THREEx || {};
 
 // # Constructor
 THREEx.DomEvents	= function(camera, domElement)
@@ -447,4 +450,8 @@ THREEx.DomEvents.prototype._onTouchEvent	= function(eventName, domEvent)
 	var mouseX	= +(domEvent.touches[ 0 ].pageX / window.innerWidth ) * 2 - 1;
 	var mouseY	= -(domEvent.touches[ 0 ].pageY / window.innerHeight) * 2 + 1;
 	this._onEvent(eventName, mouseX, mouseY, domEvent);	
+}
+
+
+return THREEx
 }
