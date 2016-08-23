@@ -1,5 +1,5 @@
 {
-  "name": "threex.domevents",
+  "name": "threex-domevents",
   "version": "0.0.0",
   "description": "npm Package port of THREEx.DomEvents.js and THREEx.Linkify.js",
   "main": "threex.domevents.js",
