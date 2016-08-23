@@ -10,7 +10,7 @@ Currently, the available events are
 
 
 Show Don't Tell
-=============== 
+===============
 * [examples/demo.html](http://jeromeetienne.github.io/threex.domevents/examples/demo.html)
 \[[view source](https://github.com/jeromeetienne/threex.domevents/blob/master/examples/demo.html)\] :
 It shows a demo showing up this extension.
@@ -26,20 +26,22 @@ How To Install It
 
 You can install it via script tag
 
-```html
-<script src='threex.domevents.js'></script>
-```
-
-Or you can install with [bower](http://bower.io/), as you wish.
-
 ```bash
-bower install threex.domevents
+npm install --save threex.domevents
 ```
 
 How To Use It
 =============
 
-Let's start by bindinf dom events like on 3d objects.
+Let's start by binding dom events like on 3d objects.
+
+## First step initialize
+```javascript
+var THREE = require('three') // require peer dependency
+var initializeDomEvents = require('threex.domevents')
+var THREEx = {}
+initializeDomEvents(THREE, THREEx)
+```
 
 ## THREEx.DomEvent.js
 
@@ -67,7 +69,7 @@ You can remove an event listener too, here is the whole cycle
 ```
 // define the callback
 function callback(event){
-	console.log('you clicked on the mesh')	
+	console.log('you clicked on the mesh')
 }
 
 // add an event listener for this callback
@@ -78,15 +80,15 @@ domEvents.removeEventListener(mesh, 'click', callback, false)
 ```
 
 If the camera changes, you can use ```domEvents.camera(camera)``` to set the new one.
-Now that you got the 
+Now that you got the
 
 ## THREEx.Linkify.js
 
 This helper will linkify any object3d you got.
 Here linkify is the fact to act as a ```<a>``` tag would behave.
-If you hover the mouse over it, the pointer is changed to become 
+If you hover the mouse over it, the pointer is changed to become
 [an hand](http://en.wikipedia.org/wiki/Pointer_\(graphical_user_interfaces\)),
-and you got 
+and you got
 [text decoration](https://developer.mozilla.org/en-US/docs/Web/CSS/text-decoration).
 If you click on the object, it will open a new tab with the url your specified.
 It is that simple.
@@ -96,17 +98,17 @@ var url		= 'http://jeromeetienne.github.io/threex/'
 var linkify	= THREEx.Linkify(domEvents, mesh, url, true)
 ```
 
-The parameters are 
+The parameters are
 * ```domEvents```: an instance of ```THREEx.DomEvents```
 * ```mesh```: an instance of ```THREE.Mesh```
 * ```url```: a string of the url
-* ```withBoundingBox```: true if you bind the bounding box and not the mesh itself. It 
-may be useful when your mesh is complex. useful because it is faster to test for 
+* ```withBoundingBox```: true if you bind the bounding box and not the mesh itself. It
+may be useful when your mesh is complex. useful because it is faster to test for
 simple mesh, usefull as it make the detections less flacky for the users for complex meshes.
 
 
 Additionnaly you can use ```linkify.destroy()``` to stop listening on those events.
-The exposed properties are 
+The exposed properties are
 
 * ```linkify.underline``` is the mesh for the underline
 * ```linkify.eventTarget``` is the model on which the domEvents are bound
