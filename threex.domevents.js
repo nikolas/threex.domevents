@@ -274,6 +274,7 @@ THREEx.DomEvents.prototype._onMove	= function(eventName, mouseX, mouseY, origDom
 	var oldSelected	= this._selected;
 	
 	if( intersects.length > 0 ){
+        console.log('intersects', intersects);
 		var notifyOver, notifyOut, notifyMove;
 		var intersect	= intersects[ 0 ];
 		var newSelected	= intersect.object;
